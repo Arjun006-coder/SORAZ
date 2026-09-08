@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://soraz.vercel.app/sitemap.xml
