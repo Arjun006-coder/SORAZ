@@ -3,37 +3,53 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
-    <title>SORAZ — Asian Pop-Culture Snacks & Ramune | India</title>
+    <title>SORAZ (そらズ) — Buy Japanese, Korean, Chinese & Thai Snacks Online in India | Ramune, Taiyaki, Tteokbokki</title>
+    
+    <!-- Core SEO Meta Tags -->
     <meta
       name="description"
-      content="SORAZ brings viral Japanese, Korean, Chinese & Thai snacks (Ramune, Taiyaki, Tteokbokki, Mochi, Dango, Tanghulu) reimagined for Indian foodies. Join the first drop waitlist!"
+      content="Buy viral Asian pop-culture street food & snacks in India. Authentic Japanese Ramune marble soda, Taiyaki waffles, Mitarashi Dango, Korean Tteokbokki, Corn Dogs, Tanghulu, Thai Milk Tea & Chinese sweets. Join the Drop 001 waitlist for exclusive early access!"
     />
     <meta
       name="keywords"
-      content="SORAZ, Ramune India, Japanese snacks India, Korean street food India, Taiyaki India, Mochi India, Dango, Tteokbokki, Tanghulu, Anime food India, K-drama snacks India, Sorafizz"
+      content="buy Japanese snacks India, buy Korean snacks India, buy Ramune online India, Japanese marble soda India, Taiyaki India, Mitarashi Dango online, Mochi India, Tteokbokki India, Korean corn dogs India, Fruit Tanghulu online India, Thai milk tea India, Thai seaweed crisps, Haw flakes India, Milk candy India, anime snacks India, anime food online, K-drama street food India, Asian snack box India, Asian treats online India, Japanese food delivery Delhi NCR Mumbai Bangalore, SORAZ, Sorafizz"
     />
     <meta name="author" content="SORAZ" />
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="canonical" href="https://soraz.vercel.app/" />
 
-    <!-- Open Graph / Social Meta Tags -->
+    <!-- Geo-Targeting for India -->
+    <meta name="geo.region" content="IN" />
+    <meta name="geo.placename" content="India" />
+    <meta name="geo.position" content="28.6139;77.2090" />
+    <meta name="ICBM" content="28.6139, 77.2090" />
+    <link rel="alternate" hreflang="en-IN" href="https://soraz.vercel.app/" />
+    <link rel="alternate" hreflang="x-default" href="https://soraz.vercel.app/" />
+
+    <!-- Open Graph (Facebook, WhatsApp, LinkedIn) -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="SORAZ" />
-    <meta property="og:title" content="SORAZ — Snack Outside The Script" />
+    <meta property="og:url" content="https://soraz.vercel.app/" />
+    <meta property="og:title" content="SORAZ — Asian Pop-Culture Snacks & Drinks | Made For India" />
     <meta
       property="og:description"
-      content="Viral snacks from anime, K-dramas, C-dramas & your feed — crafted fresh for India."
+      content="Taste the culture you love. Viral Japanese Ramune, Taiyaki, Korean Tteokbokki, Tanghulu, Thai Milk Tea & Chinese classics made fresh for India. Join Drop 001."
     />
+    <meta property="og:image" content="https://soraz.vercel.app/src/assets/soraz-hero-photo.jpg" />
+    <meta property="og:image:alt" content="Spread of Japanese Ramune, Taiyaki, Mochi, Korean Tteokbokki and Asian snacks" />
     <meta property="og:locale" content="en_IN" />
 
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="SORAZ — Asian Pop-Culture Snacks in India" />
+    <meta name="twitter:site" content="@sorafizz" />
+    <meta name="twitter:title" content="SORAZ — Asian Pop-Culture Snacks & Ramune in India" />
     <meta
       name="twitter:description"
-      content="Japan, Korea, China & Thailand iconic street snacks crafted for Indian palates."
+      content="Iconic street treats from Japan, Korea, China & Thailand crafted for Indian tastebuds. Pre-order Drop 001 now."
     />
+    <meta name="twitter:image" content="https://soraz.vercel.app/src/assets/soraz-hero-photo.jpg" />
 
-    <!-- Google Fonts -->
+    <!-- Google Fonts Preload -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -44,15 +60,154 @@
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
 
-    <!-- Structured Data (JSON-LD) -->
+    <!-- Schema 1: Organization Schema -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "Organization",
         "name": "SORAZ",
+        "alternateName": ["SORAZ Snacks", "Sorafizz", "そらズ"],
         "url": "https://soraz.vercel.app",
-        "description": "Asian pop-culture snacks & drinks from Japan, Korea, China and Thailand crafted for Indian tastebuds.",
-        "sameAs": ["https://instagram.com/sorafizz"]
+        "logo": "https://soraz.vercel.app/favicon.ico",
+        "description": "India's premier Asian pop-culture snack and beverage brand bringing authentic Japanese Ramune, Taiyaki, Korean Tteokbokki, Tanghulu, and Thai treats to Indian food lovers.",
+        "founder": {
+          "@type": "Person",
+          "name": "Arjun Agrawal"
+        },
+        "sameAs": [
+          "https://instagram.com/sorafizz",
+          "https://github.com/Arjun006-coder/SORAZ"
+        ],
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "hello@soraz.in",
+          "contactType": "customer support",
+          "areaServed": "IN"
+        }
+      }
+    </script>
+
+    <!-- Schema 2: Product Catalog & ItemList Schema -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "SORAZ Asian Pop-Culture Snack Catalog",
+        "description": "Iconic Japanese, Korean, Chinese and Thai street snacks and beverages crafted for India.",
+        "itemListElement": [
+          {
+            "@type": "Product",
+            "position": 1,
+            "name": "Ramune Marble Soda",
+            "description": "Authentic Japanese marble-stopper popping citrus soda from anime summer festivals.",
+            "countryOfOrigin": "Japan",
+            "category": "Beverage",
+            "offers": {
+              "@type": "Offer",
+              "priceCurrency": "INR",
+              "availability": "https://schema.org/PreOrder"
+            }
+          },
+          {
+            "@type": "Product",
+            "position": 2,
+            "name": "Taiyaki Waffle",
+            "description": "Crisp golden fish-shaped waffle cake with sweet molten centres.",
+            "countryOfOrigin": "Japan",
+            "category": "Snacks",
+            "offers": {
+              "@type": "Offer",
+              "priceCurrency": "INR",
+              "availability": "https://schema.org/PreOrder"
+            }
+          },
+          {
+            "@type": "Product",
+            "position": 3,
+            "name": "Tteokbokki",
+            "description": "Glossy, spicy chewy Korean rice cakes - the viral K-drama street food favourite.",
+            "countryOfOrigin": "Korea",
+            "category": "Snacks",
+            "offers": {
+              "@type": "Offer",
+              "priceCurrency": "INR",
+              "availability": "https://schema.org/PreOrder"
+            }
+          },
+          {
+            "@type": "Product",
+            "position": 4,
+            "name": "Fruit Tanghulu",
+            "description": "Glass-crackle candied fruit skewers popular across Seoul night markets.",
+            "countryOfOrigin": "Korea",
+            "category": "Confectionery",
+            "offers": {
+              "@type": "Offer",
+              "priceCurrency": "INR",
+              "availability": "https://schema.org/PreOrder"
+            }
+          },
+          {
+            "@type": "Product",
+            "position": 5,
+            "name": "Mitarashi Dango",
+            "description": "Chewy skewered Japanese rice dumplings glazed in warm sweet soy caramel glaze.",
+            "countryOfOrigin": "Japan",
+            "category": "Snacks",
+            "offers": {
+              "@type": "Offer",
+              "priceCurrency": "INR",
+              "availability": "https://schema.org/PreOrder"
+            }
+          },
+          {
+            "@type": "Product",
+            "position": 6,
+            "name": "Thai Milk Tea",
+            "description": "Rich, aromatic spiced orange black tea brewed with sweet condensed milk.",
+            "countryOfOrigin": "Thailand",
+            "category": "Beverage",
+            "offers": {
+              "@type": "Offer",
+              "priceCurrency": "INR",
+              "availability": "https://schema.org/PreOrder"
+            }
+          }
+        ]
+      }
+    </script>
+
+    <!-- Schema 3: FAQ Schema (Google Rich Snippets) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Where can I buy Japanese Ramune and Taiyaki in India?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "SORAZ brings authentic Japanese Ramune marble soda, Taiyaki waffles, Mitarashi Dango and Mochi to India with everyday accessible pricing and direct doorstep delivery."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I order Korean Tteokbokki and Tanghulu in India?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "You can join the SORAZ Drop 001 waitlist on soraz.vercel.app to vote for your favorite Korean snacks like Tteokbokki, Korean Corn Dogs and Fruit Tanghulu and get priority dispatch."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Which cities in India does SORAZ ship to?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "SORAZ Drop 001 ships to Delhi NCR, Mumbai, Bengaluru, Hyderabad, Pune, Chennai, Kolkata, and major metro cities across India."
+            }
+          }
+        ]
       }
     </script>
   </head>
