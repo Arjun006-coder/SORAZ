@@ -8,4 +8,4 @@ User-agent: Googlebot-Image
 Allow: /src/assets/
 Allow: /public/
 
-Sitemap: https://soraz.vercel.app/sitemap.xml
+Sitemap: https://soraz-seven.vercel.app/sitemap.xml
