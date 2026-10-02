@@ -1,5 +1,5 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { ArrowDownRight, ArrowUpRight, Instagram, Sparkles } from "lucide-react";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { ArrowDownRight, ArrowUpRight, Instagram, Sparkles, Heart } from "lucide-react";
 import heroSnacks from "@/assets/soraz-hero-photo.jpg";
 import japanSnacks from "@/assets/japan-snacks.jpg";
 import koreaSnacks from "@/assets/korea-snacks.jpg";
@@ -90,9 +90,21 @@ function Nav() {
           <a href="#story" className="nav-link">Why SORAZ</a>
           <a href={`https://instagram.com/${INSTAGRAM}`} target="_blank" rel="noreferrer" className="nav-link">Instagram</a>
         </nav>
-        <a href="#waitlist" className="border-2 border-ink bg-acid px-4 py-2 font-mono text-xs font-bold uppercase shadow-mini transition-transform hover:-translate-y-0.5">
-          Get first dibs
-        </a>
+        <div className="flex items-center gap-2 sm:gap-3">
+          <Link
+            to="/support"
+            className="flex items-center gap-1.5 border-2 border-ink bg-coral px-3 py-2 font-mono text-[11px] font-bold uppercase text-primary-foreground shadow-mini transition-transform hover:-translate-y-0.5 sm:text-xs"
+          >
+            <Heart className="size-3.5 fill-current" />
+            <span>Contribute</span>
+          </Link>
+          <a
+            href="#waitlist"
+            className="border-2 border-ink bg-acid px-3 py-2 font-mono text-[11px] font-bold uppercase shadow-mini transition-transform hover:-translate-y-0.5 sm:px-4 sm:text-xs"
+          >
+            Get first dibs
+          </a>
+        </div>
       </div>
     </header>
   );
@@ -237,8 +249,16 @@ function Waitlist() {
           <p className="section-kicker">Limited first drop</p>
           <h2 className="mt-4 text-5xl uppercase leading-[0.92] text-ink sm:text-7xl">Get in before it hits the feed.</h2>
           <p className="mt-6 max-w-md text-lg font-semibold leading-relaxed text-muted-foreground">Pick your cravings. We’ll use the votes to shape the first SORAZ shelf—and give the early list first access.</p>
-          <div className="mt-8 inline-flex items-center gap-2 border-2 border-ink bg-gold px-4 py-3 font-mono text-xs font-bold uppercase shadow-mini rotate-positive">
-            <Sparkles className="size-4" /> First-dib energy only
+          <div className="mt-8 flex flex-wrap items-center gap-3">
+            <div className="inline-flex items-center gap-2 border-2 border-ink bg-gold px-4 py-3 font-mono text-xs font-bold uppercase shadow-mini rotate-positive">
+              <Sparkles className="size-4" /> First-dib energy only
+            </div>
+            <Link
+              to="/support"
+              className="inline-flex items-center gap-2 border-2 border-ink bg-coral px-4 py-3 font-mono text-xs font-bold uppercase text-primary-foreground shadow-mini transition-transform hover:-translate-y-0.5"
+            >
+              <Heart className="size-4 fill-current" /> Fuel the Idea (UPI) →
+            </Link>
           </div>
         </Reveal>
         <Reveal delay={100}><WaitlistForm /></Reveal>
@@ -256,6 +276,9 @@ function Footer() {
           <p className="mt-3 font-mono text-xs font-bold uppercase text-primary-foreground">Snack outside the script.</p>
         </div>
         <div className="flex flex-col gap-3 font-mono text-xs font-bold uppercase text-primary-foreground md:items-end">
+          <Link to="/support" className="inline-flex items-center gap-2 border-b-2 border-current pb-1 font-bold">
+            <Heart className="size-4 fill-current" /> Back &amp; Contribute to the Idea
+          </Link>
           <a href={`https://instagram.com/${INSTAGRAM}`} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 border-b-2 border-current pb-1"><Instagram className="size-4" /> @{INSTAGRAM}</a>
           <a href="mailto:hello@soraz.in" className="border-b-2 border-current pb-1">hello@soraz.in</a>
           <p>© {new Date().getFullYear()} SORAZ</p>

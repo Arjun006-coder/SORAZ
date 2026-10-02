@@ -90,28 +90,36 @@ function handlePayment(params) {
 
   if (!sheet) {
     sheet = ss.insertSheet("Payments");
-    sheet.appendRow(["Timestamp", "Name", "Phone", "Amount (INR)", "UPI ID"]);
-    sheet.getRange(1, 1, 1, 5).setFontWeight("bold").setBackground("#4CAF50").setFontColor("#FFFFFF");
+    sheet.appendRow(["Timestamp", "Name", "Phone", "Amount (INR)", "Payment Method", "12-Digit UTR / Ref No", "Recipient UPI", "Status"]);
+    sheet.getRange(1, 1, 1, 8).setFontWeight("bold").setBackground("#4CAF50").setFontColor("#FFFFFF");
   }
 
   var name = params.name || "Anonymous";
   var phone = params.phone || "—";
   var amount = params.amount || "0";
+  var method = params.method || "UPI";
+  var utr = params.utr || "—";
   var timestamp = new Date().toISOString();
 
-  sheet.appendRow([timestamp, name, phone, "₹" + amount, "9958078417@kotak811"]);
+  sheet.appendRow([timestamp, name, phone, "₹" + amount, method, utr, "9958078417@kotak811", "Verification Pending"]);
 
   // ── Email notification ─────────────────────────────────────────────────
   try {
-    var subject = "💸 SORAZ: New Support Payment — ₹" + amount;
+    var subject = "💸 SORAZ: New Support Payment ₹" + amount + " [UTR: " + utr + "]";
     var body =
-      "Someone just said they paid to support SORAZ!\n\n" +
-      "Name   : " + name + "\n" +
-      "Phone  : " + phone + "\n" +
-      "Amount : ₹" + amount + "\n" +
-      "Time   : " + new Date().toLocaleString("en-IN") + "\n\n" +
-      "Check your UPI / Kotak811 app to confirm receipt.\n\n" +
-      "— SORAZ Notification System";
+      "🚀 NEW SUPPORTER CONTRIBUTION RECORDED!\n\n" +
+      "-----------------------------------------\n" +
+      "Amount       : ₹" + amount + "\n" +
+      "12-Digit UTR : " + utr + "\n" +
+      "UPI Method   : " + method + "\n" +
+      "Supporter    : " + name + "\n" +
+      "Phone        : " + phone + "\n" +
+      "Recipient    : 9958078417@kotak811\n" +
+      "Time (IST)   : " + new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" }) + "\n" +
+      "-----------------------------------------\n\n" +
+      "✅ VERIFICATION INSTRUCTION:\n" +
+      "Open your Kotak Bank / UPI app or check your SMS inbox to match UTR: " + utr + " for ₹" + amount + ".\n\n" +
+      "— SORAZ Automated System";
     MailApp.sendEmail(NOTIFICATION_EMAIL, subject, body);
   } catch (mailErr) {
     // Email failure shouldn't block the response
@@ -119,7 +127,7 @@ function handlePayment(params) {
   }
 
   return ContentService.createTextOutput(
-    JSON.stringify({ result: "success", message: "Payment recorded" })
+    JSON.stringify({ result: "success", message: "Payment recorded", utr: utr })
   ).setMimeType(ContentService.MimeType.JSON);
 }
 
