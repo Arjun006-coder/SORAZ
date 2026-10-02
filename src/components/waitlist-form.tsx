@@ -1,6 +1,7 @@
 import { useState, type FormEvent } from "react";
 import { PRODUCTS } from "@/components/products";
 import { ConfettiBurst } from "@/components/confetti";
+import { SupportPopup } from "@/components/support-popup";
 import { Sparkles, CheckCircle2 } from "lucide-react";
 
 // User's Google Apps Script Web App Endpoint:
@@ -13,6 +14,7 @@ export function WaitlistForm() {
   const [picked, setPicked] = useState<string[]>([]);
   const [status, setStatus] = useState<"idle" | "sending" | "done" | "duplicate" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
+  const [showPopup, setShowPopup] = useState(false);
 
   function toggle(product: string) {
     setPicked((prev) =>
@@ -47,29 +49,38 @@ export function WaitlistForm() {
         setStatus("duplicate");
       } else {
         setStatus("done");
+        // Show support popup after a brief delay so confetti runs first
+        setTimeout(() => setShowPopup(true), 2200);
       }
     } catch (err) {
       console.error("Submission error:", err);
       // Fallback success UI so user gets confirmation even on network policy edge-cases
       setStatus("done");
+      setTimeout(() => setShowPopup(true), 2200);
     }
   }
 
   if (status === "done") {
     return (
-      <div className="relative overflow-hidden border-2 border-ink bg-card p-8 text-center shadow-brutal sm:p-14">
-        <ConfettiBurst />
-        <div className="animate-pop relative">
-          <p className="font-mono text-xs font-black uppercase tracking-widest text-electric">Spot Secured / Drop 001</p>
-          <h3 className="mt-4 text-3xl text-coral sm:text-5xl">You're on the list, {name.split(" ")[0] || "friend"}!</h3>
-          <p className="mx-auto mt-3 max-w-md text-base text-muted-foreground">
-            Your selected cravings (<strong>{picked.join(", ")}</strong>) are logged directly for our manufacturing team. We'll ping you first the second SORAZ ships!
-          </p>
-          <p className="mt-6 text-sm font-black uppercase text-matcha">またね • 또 봐요 • See you soon</p>
+      <>
+        <div className="relative overflow-hidden border-2 border-ink bg-card p-8 text-center shadow-brutal sm:p-14">
+          <ConfettiBurst />
+          <div className="animate-pop relative">
+            <p className="font-mono text-xs font-black uppercase tracking-widest text-electric">Spot Secured / Drop 001</p>
+            <h3 className="mt-4 text-3xl text-coral sm:text-5xl">You're on the list, {name.split(" ")[0] || "friend"}!</h3>
+            <p className="mx-auto mt-3 max-w-md text-base text-muted-foreground">
+              Your selected cravings (<strong>{picked.join(", ")}</strong>) are logged directly for our manufacturing team. We'll ping you first the second SORAZ ships!
+            </p>
+            <p className="mt-6 text-sm font-black uppercase text-matcha">またね • 또 봐요 • See you soon</p>
+          </div>
         </div>
-      </div>
+        {showPopup && (
+          <SupportPopup name={name} onClose={() => setShowPopup(false)} />
+        )}
+      </>
     );
   }
+
 
   if (status === "duplicate") {
     return (
