@@ -57,9 +57,9 @@ const cultureDrops = [
     issue: "SHANGHAI / BANGKOK / 03",
     title: "Feed-famous flavours",
     copy: "From C-drama nostalgia to Bangkok night-market staples: bold texture, big colour and snacks worth pausing for.",
-    snacks: ["Haw flakes + milk candy", "Thai seaweed crisps", "Mango sticky rice + milk tea"],
+    snacks: ["Haw flakes", "Thai seaweed crisps"],
     image: asiaSnacks,
-    imageAlt: "Tanghulu, mango sticky rice, Thai milk tea and crispy seaweed",
+    imageAlt: "Tanghulu, haw flakes and crispy Thai seaweed",
     color: "bg-acid",
   },
 ];
@@ -139,7 +139,7 @@ function Hero() {
 }
 
 function Ticker() {
-  const words = "RAMUNE · TTEOKBOKKI · TAIYAKI · TANGHULU · DANGO · THAI MILK TEA · ";
+  const words = "RAMUNE · TTEOKBOKKI · TAIYAKI · TANGHULU · DANGO · MOCHI · ONIGIRI · ";
   return (
     <div className="ticker border-b-2 border-ink bg-acid py-3" aria-label="Featured snacks">
       <div className="ticker-track font-display text-xl uppercase text-ink sm:text-3xl">
